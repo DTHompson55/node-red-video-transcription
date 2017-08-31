@@ -1,0 +1,94 @@
+{
+  "swagger": "2.0",
+  "info": {
+    "version": "1.0.0",
+    "title": "Video to Webvtt",
+    "description": "A simple Video to Webvtt Service",
+    "termsOfService": "http://swagger.io/terms/",
+    "contact": {
+      "name": "Dan Thompson"
+    },
+    "license": {
+      "name": "MIT"
+    }
+  },
+  "host": "24.250.40.34:1880",
+  "basePath": "/api",
+  "schemes": [
+    "http"
+  ],
+  "consumes": [
+    "application/json"
+  ],
+  "produces": [
+    "application/json"
+  ],
+  "paths": {
+    "/webvtt": {
+      "get": {
+        "description": "accepts filename and service endpoint to call when complete",
+        "operationId": "start",
+        "produces": [
+          "application/json",
+          "application/xml",
+          "text/xml",
+          "text/html"
+        ],
+        "parameters": [
+          {
+            "name": "filename",
+            "in": "query",
+            "description": "the filename to work with",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "respendpoint",
+            "in": "query",
+            "description": "the response endpoint to call when complete",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "correlationId",
+            "in": "query",
+            "description": "the response correlation",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "multipleSpeakers",
+            "in": "query",
+            "description": "true/false multiple speakers",
+            "required": true,
+            "type": "boolean"
+          },
+          {
+            "name": "language",
+            "in": "query",
+            "description": "the language of choice, US_en, etc.",
+            "required": true,
+            "type": "string"
+          },
+          {
+            "name": "model",
+            "in": "query",
+            "description": "the model, which gets combined with the language",
+            "required": true,
+            "type": "string"
+          }
+
+
+        ],
+        "responses": {
+          "200": {
+            "description": "file response",
+            "schema": {
+              "type": "string"
+            }
+          }
+        }
+      }
+    }
+  }
+}
